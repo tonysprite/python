@@ -1,2 +1,2 @@
-#/usr/bin/python
-echo 1;
+#!/usr/bin/python
+print "hello tonysprite";
