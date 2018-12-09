@@ -20,6 +20,10 @@ if [ ! -f $chapterHtmlLocalPath ]; then
 fi
 echo "目录信息抓取完毕:"$chapterHtmlLocalPath
 
+#存在历史目录文件则删除
+if [ -f $chapterParamsLocalFile ];then
+	rm $chapterParamsLocalFile -f
+fi
 echo "开始保存目录链接参数"
 #读取目录链接信息并存入txt文件
 
@@ -43,9 +47,9 @@ cat $chapterParamsLocalFile|while read line
 do
 {
 	/usr/bin/wget $chapterHtmlWebUrl$line".html" -O $chapterListLocalDir$line -q -nc >> /dev/null
-}
+}&
 done
-
+wait
 echo "分章抓取完毕"
 
 echo "开始写入小说文件"
