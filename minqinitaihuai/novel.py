@@ -1,11 +1,12 @@
 #-*-coding:utf-8-*- #编码声明，不要忘记！
+import ssl
 import urllib2
 import re
 from bs4 import BeautifulSoup
 import sys
 import time
 #开始抓取的url
-novelUrl="https://m.xiaoshuoli.com/i36480/18734036.html"
+novelUrl="http://m.xiaoshuoli.com/i36480/18734036.html"
 #小说保存的文件
 savePath="/tmp/minqinitaihuai.txt"
 def writeNovel(url):
@@ -14,6 +15,7 @@ def writeNovel(url):
     reload(sys)
     sys.setdefaultencoding('utf-8')
 
+    
     req = urllib2.Request(url)
     req.add_header('Referer',url)
     req.add_header('Accept','text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8')

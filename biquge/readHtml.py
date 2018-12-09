@@ -7,9 +7,10 @@ from bs4 import BeautifulSoup
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-destinationFile='/tmp/tuntianwudi_end.txt'
-htmlDir='/tmp/tuntianwudi/'
-f=open('/tmp/tuntianwudi.txt')
+destinationFile=sys.argv[3]
+htmlDir=sys.argv[2]
+chapterFile=sys.argv[1]
+f=open(chapterFile)
 #存入文件
 def readHtml(waitingReadFileName):
 	htmlFileObj=open(waitingReadFileName)	
@@ -44,3 +45,4 @@ while 1:
 
 f.close()
 
+exit()
